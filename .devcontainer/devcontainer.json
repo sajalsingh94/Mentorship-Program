@@ -1,0 +1,29 @@
+{
+  "name": "The Coach Site",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.autoSave": "onFocusChange"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "The Coach Programme",
+      "protocol": "http"
+    }
+  },
+  "postStartCommand": "bash -lc 'python3 -m http.server 8000 &'"
+}
+
